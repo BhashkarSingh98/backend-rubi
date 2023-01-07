@@ -67,11 +67,11 @@ app.get("/registrations", async (req, res) => {
   }
 });
 
-app.delete("/user/:id", async (req, res) => {
+app.delete("/product/:id", async (req, res) => {
   let result = await Product.deleteOne({ _id: req.params.id });
   res.send(result);
 });
-app.get("/user/:id", async (req, res) => {
+app.get("/product/:id", async (req, res) => {
   let result = await Product.findOne({ _id: req.params.id });
   if (result) {
     res.send(result);
@@ -79,7 +79,7 @@ app.get("/user/:id", async (req, res) => {
     res.send({ result: "no record found" });
   }
 });
-app.put("/user/:id", async (req, res) => {
+app.put("/product/:id", async (req, res) => {
   let result = await Product.updateOne(
     { _id: req.params.id },
     {
